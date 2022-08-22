@@ -10,12 +10,14 @@ let handleHtml = (html) => {
     let $ = cheerio.load(html)
     let itemArr = $(".boxContent")
     let spices_name = $('.boxContent>h4')
-    let images = $('.lozad').splice(0, itemArr.length)
-    let table_of_content_value = $(".rc").splice(0, (itemArr.length) * 7)
+    let images = $('.lozad')
+    let table_of_content_value = $(".rc")
     for (let i = 0; i < itemArr.length; i++) {
         let data_of_each_item = {}
         data_of_each_item["name"] = spices_name[i].children[0].data
-        data_of_each_item["image"] = "https://www.commodityinsightsx.com" + images[i].attributes[1].value
+        data_of_each_item["image"] = images[i].attributes[1].value.includes("default")
+            ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5_8U6-f_tDSw6t2z6AlyNfrDxSAQE8cPRMQ&usqp=CAU"
+            : "https://www.commodityinsightsx.com" + images[i].attributes[1].value
         data_of_each_item["Category"] = "Spices"
         data_of_each_item["Costliest_Market"] = table_of_content_value[7 * i + 2].children[0].data.trim()
         data_of_each_item["Costliest_Market_Price"] = table_of_content_value[7 * i + 3].children[0].data.trim()
