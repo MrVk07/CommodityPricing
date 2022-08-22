@@ -76,13 +76,17 @@
 
 /* GRID STYLING */
 
+.eachitem {
+    background-color: #C7D3D4FF;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     min-height: 100vh;
-    background-color: #1d2630;
+    background-color: #603F83FF;
     /* display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

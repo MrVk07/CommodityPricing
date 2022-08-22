@@ -1,0 +1,26 @@
+{
+  "name": "commoditypricing",
+  "version": "1.0.0",
+  "description": "CommodityPricing",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrVk07/CommodityPricing.git"
+  },
+  "keywords": [
+    "CommodityPricing",
+    "commodity",
+    "prices",
+    "commodityprices"
+  ],
+  "author": "Vineet Karwa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrVk07/CommodityPricing/issues"
+  },
+  "homepage": "https://github.com/MrVk07/CommodityPricing#readme"
+}
