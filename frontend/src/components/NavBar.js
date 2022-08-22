@@ -4,7 +4,7 @@ function NavBar() {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <Link className="navbar-brand" to="#">CommodityPricing</Link>
+                <Link className="navbar-brand" to="/">CommodityPricing</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -16,6 +16,18 @@ function NavBar() {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/pulses">Pulses</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/spices">Spices</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/oilseeds">Oil Seeds</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/cereals">Cereals</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/fruits">Fruits</Link>
                         </li>
                     </ul>
                 </div>

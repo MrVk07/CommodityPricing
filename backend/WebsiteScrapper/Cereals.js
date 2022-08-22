@@ -2,42 +2,42 @@ import request from 'request'
 import express from "express";
 import cheerio from "cheerio"
 
-const pulses = express.Router();
-let url = 'https://www.commodityinsightsx.com/commodities/pulses'
+const Cereals = express.Router();
+let url = 'https://www.commodityinsightsx.com/commodities/cereals'
 
 let handleHtml = (html) => {
-    let pulses = []
+    let Cereals = []
     let $ = cheerio.load(html)
     let itemArr = $(".boxContent")
-    let pulse_name = $('.boxContent>h4')
+    let Cereal_name = $('.boxContent>h4')
     let images = $('.lozad').splice(0, itemArr.length)
     let table_of_content_value = $(".rc").splice(0, (itemArr.length) * 7)
     for (let i = 0; i < itemArr.length; i++) {
         let data_of_each_item = {}
-        data_of_each_item["name"] = pulse_name[i].children[0].data
+        data_of_each_item["name"] = Cereal_name[i].children[0].data
         data_of_each_item["image"] = "https://www.commodityinsightsx.com" + images[i].attributes[1].value
-        data_of_each_item["Category"] = "Pulses"
+        data_of_each_item["Category"] = "Cereals"
         data_of_each_item["Costliest_Market"] = table_of_content_value[7 * i + 2].children[0].data.trim()
         data_of_each_item["Costliest_Market_Price"] = table_of_content_value[7 * i + 3].children[0].data.trim()
         data_of_each_item["Cheapest_Market"] = table_of_content_value[7 * i + 4].children[0].data.trim()
         data_of_each_item["Cheapest_Market_Price"] = table_of_content_value[7 * i + 5].children[0].data.trim()
         data_of_each_item["Latest_Price_Date"] = table_of_content_value[7 * i + 6].children[0].data.trim()
-        pulses.push(data_of_each_item)
+        Cereals.push(data_of_each_item)
     }
-    return pulses
+    return Cereals
 }
 
-pulses.get('/', async (req, res) => {
+Cereals.get('/', async (req, res) => {
     request(url, (error, response, html) => {
         if (error) {
             console.error('error :', error);
         }
         else {
-            let data_of_pulses = handleHtml(html)
-            res.send(data_of_pulses)
+            let data_of_Cereals = handleHtml(html)
+            res.send(data_of_Cereals)
         }
     })
 })
 
 
-export default pulses
+export default Cereals
